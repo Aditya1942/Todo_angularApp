@@ -1,0 +1,17 @@
+<app-header></app-header>
+<form class='p-3' (submit)="onAddTodo($event)">
+    <div class="mb-3">
+        <label for="TODO" class="form-label">TODO</label>
+        <input type="text" class="form-control" id="TODO">
+    </div>
+    <button type="submit" class="btn btn-primary">Add TODO</button>
+</form>
+<div *ngIf="todosList.length === 0; else elseBlock" class="px-2">
+    No Todos to display
+</div>
+<ng-template #elseBlock>
+    <div *ngFor="let todo of todosList">
+        <app-todo-list [todo]="todo" (todoDelete)="deleteTodo($event)" (todoActive)="activeTodo($event)">
+        </app-todo-list>
+    </div>
+</ng-template>

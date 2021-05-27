@@ -1,0 +1,9 @@
+<div class="card d-flex flex-row align-items-center px-4">
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" (click)="onCompleteToggle(todo)" value="" id="defaultCheck1">
+    </div>
+    <div class="card-body" [ngClass]="{'strike':!todo.active}">
+        {{todo.id+". "+todo.value}}
+    </div>
+    <button type="button" class="btn-close" aria-label="Close" (click)="onClick(todo)"></button>
+</div>
